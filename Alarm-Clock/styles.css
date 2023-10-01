@@ -1,0 +1,595 @@
+/* FONT-FAMILIES */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&family=Raleway:wght@100;200;300;400;500;600;700&display=swap");
+
+@font-face {
+  font-family: "clock-font";
+  src: url("./fonts/digital-7.ttf");
+}
+
+/* GENERAL STYLING */
+:root {
+  --sub-text: #adadad;
+  --hover: #4cc9f0;
+  --hover-dark: #2aa8d0;
+  --danger: #ea3546;
+  --glow-heavy: #0ff;
+  --glow-light: #4dd;
+  --white: #fff;
+  --black: #000;
+  --grey-1: #dedede;
+  --grey-2: #ced4da;
+  font-size: 16px;
+}
+
+body {
+  --font-xxl-main: 8em;
+  --font-xxl-sub: 6em;
+  --font-xl-main: 4em;
+  --font-xl-sub: 3.5em;
+  --font-lg-main: 3em;
+  --font-lg-sub: 2.5em;
+  --font-md-main: 2em;
+  --font-md-sub: 1.5em;
+  --font-sm-main: 1em;
+  --font-sm-sub: 0.5em;
+}
+
+html[data-theme="light"] {
+  --text: #242424;
+  --nav-bg: #f8f9fa;
+  --main-bg: #e9ecef;
+  --extreme: #000;
+}
+
+html[data-theme="dark"] {
+  --text: #dedede;
+  --nav-bg: #0d1b2a;
+  --main-bg: #1b263b;
+  --extreme: #fff;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0px;
+}
+
+a {
+  text-decoration: none;
+}
+
+i {
+  color: var(--text);
+  font-size: 30px;
+}
+
+span,
+.form-check-label {
+  font-size: var(--font-md-sub);
+}
+
+i + span,
+.form-check-label {
+  margin-left: var(--font-sm-main);
+}
+
+/* NAVBAR STYLING */
+
+nav {
+  background-color: var(--nav-bg);
+  color: var(--text);
+  padding: 0.5rem;
+  position: sticky;
+  top: 0%;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: var(--font-md-main);
+  margin-right: var(--font-md-main);
+}
+
+ul li a {
+  color: var(--text);
+}
+
+ul li a:hover,
+ul li a:hover i {
+  color: var(--hover);
+}
+
+.features {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+}
+
+.logo a img {
+  width: 90px;
+}
+
+.logo a span {
+  margin-left: 0.5rem;
+  text-transform: uppercase;
+  font-size: var(--font-lg-main);
+  font-weight: 500;
+}
+
+.form-check-input {
+  width: 55px !important;
+  font-size: var(--font-md-sub);
+  border: 2px solid var(--text) !important;
+  background: url("./images/sun.png") !important;
+  background-position: left center !important;
+  background-size: 24px !important;
+  background-repeat: no-repeat !important;
+}
+
+.form-check-input:checked {
+  border: 2px solid var(--text) !important;
+  background: url("./images/crescent-moon.png") !important;
+  background-position: right center !important;
+  background-size: 18px !important;
+  background-repeat: no-repeat !important;
+}
+
+.form-check-input:hover {
+  cursor: pointer;
+  border-color: var(--hover) !important;
+}
+
+.form-check-label {
+  text-transform: capitalize;
+}
+
+/* MAIN STYLING */
+
+main {
+  background-color: var(--main-bg);
+  color: var(--text);
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.current-datetime .time h1,
+.current-datetime .date h1 {
+  text-align: center;
+  width: 100%;
+  letter-spacing: 1.5rem;
+  
+  font-size: var(--font-xxl-main);
+  font-family: "clock-font";
+}
+
+.current-datetime .date h1 {
+  color: var(--sub-text);
+  letter-spacing: 0.5rem;
+  font-size: var(--font-xl-main);
+}
+
+/* If in fullscreen mode apply these styles */
+
+.current-datetime:fullscreen {
+  background-color: var(--main-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.current-datetime:fullscreen .time h1 {
+  color: var(--hover);
+}
+
+.current-datetime:fullscreen .date h1 {
+  color: var(--sub-text);
+}
+
+.set-alarm {
+  margin: 2rem auto;
+  padding: 15px 45px;
+  box-shadow: var(--sub-text) 0px 3px 8px;
+  background-color: var(--text);
+  border: none;
+  display: flex;
+  align-items: center;
+  transition: 0.2s transform ease-in-out;
+}
+
+.set-alarm:hover {
+  background-color: var(--hover);
+  box-shadow: 0px 15px 20px rgba(46, 180, 250, 0.6);
+  color: var(--extreme);
+}
+
+.set-alarm > img {
+  width: 50px;
+  margin-right: 1rem;
+}
+
+.set-alarm > span {
+  font-size: var(--font-md-main);
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.active-alarms {
+  margin: var(--font-md-main) auto;
+  width: 100%;
+}
+
+.active-alarms ul li {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  place-items: center;
+  margin: 2rem auto;
+  /* margin-left: -2rem; */
+}
+
+.active-alarms ul li span {
+  color: var(--sub-text);
+  font-size: var(--font-md-main);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.active-alarms ul li span i {
+  color: var(--danger);
+}
+
+/* MODAL STYLING */
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-dialog {
+  max-width: none;
+  width: 40%;
+}
+
+.modal-content {
+  background-color: var(--main-bg);
+}
+
+.modal-header {
+  color: var(--text);
+  background-color: var(--nav-bg);
+}
+
+.modal-header > h1 {
+  font-size: var(--font-md-main);
+}
+
+.modal-header,
+.modal-body,
+.modal-footer {
+  border: none;
+}
+
+.btn-close {
+  background-color: var(--extreme);
+}
+
+.btn {
+  border-radius: 2px;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--hover);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: var(--hover-dark);
+}
+
+.modal-body form div label {
+  color: var(--text);
+  font-size: var(--font-md-sub);
+}
+
+.modal-body form div input,
+.set-meridiem select {
+  display: block;
+  width: 100%;
+  padding: 6px 10px;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  background-color: var(--text);
+}
+
+/* STOP-WATCH */
+
+.stop-watch-modal-body {
+  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.outer-circle {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.outer-circle::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 17px 3px var(--glow-heavy),
+    0 0 4px 2px var(--glow-heavy);
+  box-shadow: 0 0 17px 3px var(--glow-heavy), 0 0 4px 2px var(--glow-heavy);
+}
+
+#stop-watch-timer #hour-min-sec,
+#stop-watch-timer #milisec {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  font-size: var(--font-xl-main);
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 6px;
+  color: var(--glow-light);
+}
+
+#stop-watch-timer > #milisec {
+  top: 45%;
+  font-size: var(--font-lg-sub);
+  margin: 2rem auto;
+}
+
+.stop-watch-controls {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stop-watch-controls button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid var(--nav-bg);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 8px 15px, rgba(0, 0, 0, 0.5) 0px 6px 6px;
+}
+
+.stop-watch-controls button:active {
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 2px 0px,
+    rgba(0, 0, 0, 0.75) 0px 2px 6px 2px;
+}
+
+.stop-watch-controls button i {
+  color: var(--glow-light);
+}
+
+/* LIGHT MODE STYLES */
+
+html[data-theme="light"] .set-alarm {
+  background-color: var(--grey-1);
+}
+
+html[data-theme="light"] .set-alarm:hover {
+  background-color: var(--hover);
+}
+
+html[data-theme="light"] .btn-close {
+  background-color: var(--grey-2);
+}
+
+html[data-theme="light"] .modal-body form div input,
+html[data-theme="light"] .set-meridiem select {
+  background-color: var(--nav-bg);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+html[data-theme="light"] .outer-circle::before {
+  -webkit-box-shadow: 0 0 17px 3px var(--glow-light),
+    0 0 4px 2px var(--glow-light);
+  box-shadow: 0 0 17px 3px var(--glow-light), 0 0 4px 2px var(--glow-light);
+}
+
+html[data-theme="light"] .stop-watch-controls button {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+html[data-theme="light"] .stop-watch-controls button:active {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 1072px) {
+  body {
+    font-size: 12px;
+  }
+  .form-check-input {
+    width: 45px !important;
+    height: 22px;
+    background-size: 18px !important;
+  }
+  .form-check-input:checked {
+    background-size: 15px !important;
+  }
+
+  .active-alarms ul li span {
+    font-size: 1.5rem;
+  }
+
+  .active-alarms ul li {
+    margin-left: auto;
+  }
+  .modal-dialog {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 865px) {
+  body {
+    font-size: 10px;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  .features span,
+  .features label {
+    display: none;
+  }
+
+  .set-alarm > img {
+    width: 35px;
+  }
+
+  .delete-alarm span i {
+    font-size: 24px;
+  }
+
+  .outer-circle {
+    width: 300px;
+    height: 300px;
+  }
+
+  .stop-watch-controls button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .stop-watch-controls button i {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  body {
+    font-size: 6px;
+  }
+
+  .active-alarms ul li span {
+    font-size: 1rem;
+  }
+
+  #stop-watch-timer #hour-min-sec {
+    font-size: 2rem;
+  }
+
+  #stop-watch-timer #milisec {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    padding: 1rem;
+  }
+
+  .container {
+    padding: 0px;
+  }
+
+  .logo a img {
+    width: 65px;
+  }
+
+  .current-datetime {
+    width: 100%;
+  }
+
+  .current-datetime .time h1 {
+    letter-spacing: 1rem;
+  }
+
+  .set-alarm > img {
+    width: 28px;
+  }
+
+  .modal-dialog {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  body {
+    font-size: 5px;
+  }
+
+  i {
+    font-size: 20px;
+  }
+
+  .logo a img {
+    width: 50px;
+  }
+
+  .current-datetime .time h1 {
+    letter-spacing: 0.5rem;
+  }
+
+  .set-alarm {
+    padding: 10px 30px;
+  }
+
+  .set-alarm > img {
+    width: 24px;
+  }
+
+  .outer-circle {
+    width: 250px;
+    height: 250px;
+  }
+
+  .stop-watch-controls button {
+    width: 30px;
+    height: 30px;
+  }
+
+  .stop-watch-controls button i {
+    font-size: 20px;
+  }
+}
